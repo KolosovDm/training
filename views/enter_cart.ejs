@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Создать карточку</title>
+	<link href="../css/enter_cart.css" rel="stylesheet" type="text/css" /> 	
+	<script src = '../js/jquery.js'></script>
+	
+</head>
+<body>
+	<!--На этой странице будут создаваться карточки с тестами -->
+	<div id="wrapper">
+	<div id="addThems">
+	<form action="/addThems" method = "POST">
+		<input type="text" id="themsName"  placeholder = 'Введите название темы' name = 'thems' required>
+		<input type="submit" id="addToServer" value = 'Создать тему'>
+	</form>
+	
+	</div>
+		<div id="base_law"></div>
+		<select name="law_choice" id="law_list">
+			<%for (var i = 0; i < names.length; i++) {%>
+			<option><%=names[i].name%></option>
+			<%}%>
+		</select>
+		<div id="enter_question">
+			<div id="question" contenteditable ></div>
+			<div id="answer_choices">
+				<ul>
+					<li>
+						<div class="cont">
+						<table>
+							<tr>
+								<td class = 'answer'><p class="choice" contenteditable></p></td>
+								<td class = 'trueOrFalse'>
+								<input type = 'checkbox' class='checkbox'>
+								<label for = 'checkbox'>Верно</label>
+								</td>
+							</tr>
+						</table>
+							
+							
+						</div>
+					</li>
+					
+				</ul>
+				<input type="button" value="Следующий вариант" id = "next">
+			</div>
+			<div id="coment" contenteditable></div>
+			<input type="submit" id = "submit" value="Перейти к следующей">
+		</div>
+		<div id="comments"></div>
+		<form action="/">
+			<input type="submit" value="Перейти на главную">
+		</form>
+		
+	</div>
+<script src = '../js/enter_cart.js'></script>	
+</body>
+</html>

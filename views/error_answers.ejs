@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Верные ответы</title>
+	<link href="../css/error_answers.css" rel="stylesheet" type="text/css" /> 	
+	<script src = '../js/jquery.js'></script>
+</head>
+<body>
+	<p>Ошибки
+	<%for (var i = 0; i < errors.length; i++) {%>
+				<% var bad_answer = JSON.parse(errors[i].data) %>
+				<p><%= bad_answer.question%></p>
+				<%for(var j = 0; j < bad_answer.stat.length; j++){%> 
+					<%if(bad_answer.stat[j] == "true") {var gud_ans = bad_answer.answers[j]}%>
+					
+				<%}%>
+				<p> <%= gud_ans%> </p>
+				<%}%>
+	</p>
+	
+	
+	<script src = '../js/error_answers.js'></script>
+</body>
+</html>
